@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # Redirige vers la page d'accueil HTML
-    return render_template('index.html')
+    return redirect('https://github.com/fneyron/yfinanceAPI')
 
 @app.route('/historical-data', methods=['GET'])
 def get_historical_data():
