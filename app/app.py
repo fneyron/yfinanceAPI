@@ -1,8 +1,12 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect
 import yfinance as yf
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    # Redirige vers la page d'accueil HTML
+    return redirect('/static/index.html')
 
 @app.route('/historical-data', methods=['GET'])
 def get_historical_data():
