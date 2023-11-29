@@ -30,7 +30,7 @@ def get_dividends():
 
     data = yf.Ticker(symbol)
     div = data.dividends
-    return jsonify(div.to_dict())
+    return div.to_json()
 
 
 @app.route('/splits', methods=['GET'])
@@ -41,7 +41,7 @@ def get_splits():
 
     data = yf.Ticker(symbol)
     splits = data.splits
-    return jsonify(splits.to_dict())
+    return splits.to_json
 
 
 @app.route('/info', methods=['GET'])
@@ -63,7 +63,7 @@ def get_balance_sheet():
 
     data = yf.Ticker(symbol)
     balance_sheet = data.balance_sheet
-    return jsonify(balance_sheet.to_dict())
+    return balance_sheet.to_json()
 
 
 @app.route('/cash-flow', methods=['GET'])
@@ -74,7 +74,7 @@ def get_cash_flow():
 
     data = yf.Ticker(symbol)
     cash_flow = data.cashflow
-    return jsonify(cash_flow.to_dict())
+    return cash_flow.to_json()
 
 @app.route('/earnings', methods=['GET'])
 def get_earnings():
@@ -84,7 +84,7 @@ def get_earnings():
 
     data = yf.Ticker(symbol)
     earnings = data.earnings
-    return jsonify(earnings.to_dict())
+    return earnings.to_json()
 
 @app.route('/financials', methods=['GET'])
 def get_financials():
@@ -94,7 +94,7 @@ def get_financials():
 
     data = yf.Ticker(symbol)
     financials = data.financials
-    return jsonify(financials.to_dict())
+    return financials.to_json()
 
 
 if __name__ == '__main__':
