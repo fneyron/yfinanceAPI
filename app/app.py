@@ -10,14 +10,16 @@ def home():
 
 @app.route('/historical-data', methods=['GET'])
 def get_historical_data():
+    print(request)
     symbol = request.args.get('symbol')
     period = request.args.get('period', '1mo')  # default to 1 month
     if not symbol:
         return jsonify({'error': 'No symbol provided'}), 400
-
+    print(symbol)
     data = yf.Ticker(symbol)
+
     hist = data.history(period=period)
-    return jsonify(hist.to_dict())
+    return hist.to_json()
 
 
 @app.route('/dividends', methods=['GET'])
