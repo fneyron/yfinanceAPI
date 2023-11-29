@@ -5,16 +5,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV FLASK_APP run.py
 ENV DEBUG False
-ENV ASSETS_ROOT /static/
 
 COPY requirements.txt .
 
 # install python dependencies
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-
-EXPOSE 80
-#COPY env.sample .env
 
 COPY . .
 
